@@ -1,0 +1,112 @@
+For main page:
+
+Main Wrapper/box for the game
+Should include:
+    Main area with buttons (sub menu for scene switching)
+    Notification area
+    ... others?
+Menu area  
+    Top, or bottom or side?
+
+
+Examples: 
+A Dark Room:
+from html file
+    Body: - broken into
+        Wrapper:
+            SaveNotify - blips Saved in upper right
+            content - Main Game window in middle
+                outerSlider
+                    main (seems to be the same as outerSlider)
+                        header - has selectors for different areas
+
+
+Interestingly when it runs more are added on initial load...
+    W/in Wrapper:
+            Notifications - notification area on left
+
+                    w/in Main:
+                        locationSlider
+
+Location slider gets things added to it as needed looks like:
+    Room Panel - main area for room?
+        Store container - items, doesn't show up until wood is unlock
+
+
+On interesting.. when switching areas looks like they just litterally slide the different areas from one side to another, not actually change "scenes", one is just hidden to the side...
+
+Also the stores container seems to be anchored, and does not move so it's always visiable regardless of the underlying rooms
+-- It has a seperate village box... that holds supplies for the village...
+
+
+
+
+    Menu: - bottom right
+*Interesntinely the menu is not part of the initial index.html page...
+** Find where it's added: ___
+
+
+Also fun: not using button class... difines everything as just <div>
+
+Come back to this later...
+
+Kittens Game:
+seems to define it's areas much more locally in the file and not hidden
+
+Header: a bunch of shit... w/ scripts and other stuff
+    ** come back to this
+
+Body:
+    gamePageConter (main continer?)
+        topbar: The top bar...
+            Bunch of small <span>s for the title, MOD and menu..
+            looks like <divs> broken in to <spans>
+            the html and the actual running page are set up a bit differently.. probably gets changed in code
+        loadingContainer: ????
+        game: 
+            tooltip
+            leftColumn
+                leftcolumviewport "loading"
+            midColumn
+                midcolumnviewport "loading"
+                gameContainerHelp -- looks like just a placehoder if nothing is loaded overtop of it, has links to discord and whatnot
+            rightColumn
+                Calendar
+                Right-tab-header
+                    Has Log and Queue buttons
+                ObserveButton: for observing astrominic events...
+                right-tab (id"log")
+                    the log,
+                    clear buttonsfilters
+                    the log itself
+                right-tab (id"queue") 
+                    has viewport inside it
+            toggle center ???
+
+        then a bunch of others:
+            These are all the middle options windows... look hidden but pop up when the button pressed but seem to always be there in the background
+        creditsDiv
+        optionsDiv
+        exportDiv
+        importDiv
+        appDiv
+
+        footerlinks: Bottom menu
+
+So looks like in kittens game, it does completely change the <div> in the middle Panel
+So when you click on village the actual <div> completely changes to <div class ="tabInner Village"> and when it's on bonfire its <div class="tabInner Bonfire">
+so something is changing completely
+
+
+Cookie Clicker:
+Body   
+    Wrapper
+        TopBar: blah blah
+        Game:
+            Versionnumber (bottom left)
+
+
+
+
+*** Look up <div> id= vs class=
+

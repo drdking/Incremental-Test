@@ -1,0 +1,86 @@
+/* #____ is for fields based from id="___" */
+/* .____ is for class="____" */
+
+/* Test formatting from KG */
+#topBar {
+    position:absolute;
+    top: 2px;
+    left: 0px;
+    height: 26px;
+    width: 100%;
+    border-bottom: 1px solid gray;
+
+    box-shadow: 1px 0px 2px #888;
+    min-width: 1180px;
+
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+
+/*Test formatting for buttons */
+.btn {
+    border: 1px solid black;
+    padding: 5px;
+    cursor: default;
+    width: 170px;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+button {
+    border: 10px solid red;
+    width: 20 px;
+}
+
+
+button {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #212529;
+  background: #212529;
+}
+button:hover {
+  background: #fff;
+  color: #212529
+}
+button:active {
+    background: red;
+}
+
+#goUpBtn {
+  min-width: 130px;
+  height: 40px;
+  color: #175b5b;
+  background: rgb(39, 188, 16);
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #212529;
+}
+dbutton:hover {
+  background: #d82323;
+  color: #212529
+}
+dbutton:active {
+    background: rgb(50, 15, 224);
+}

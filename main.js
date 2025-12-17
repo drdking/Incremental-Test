@@ -59,7 +59,7 @@ function upgrade(){
 function cheat(CHEAT_AMOUNT){
     console.log(CHEAT_AMOUNT);
     console.log(test); test ++;
-    game.score += game.CHEAT_AMOUNT;
+    game.score += CHEAT_AMOUNT;
     updateDisplay();
 }
 
