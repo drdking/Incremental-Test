@@ -1,61 +1,40 @@
 <!DOCTYPE html>
-
-<head>
-<!-- Header stuff... uh maybe-->
-    <link rel="stylesheet" type ="text/css" href="interface.css" />
-
-</head>
-
+<header>
+    <link rel="stylesheet" type ="text/css" href="default.css" />
+    <script type="text/javascript" src="setup.js" ></script>
+    <script defer type="text/javascript" src="main.js" >  </script>
+</header>
 
 <body>
-    <!-- Before I do too much more I'm going to have to think about how I want to set 
-     up the window-->
+    <!-- Basic lay out
+    Top Bar for Title
+    Main window for game play
+    Small bottom bar for options 
+    -->
+    <div id="page_container">
+        <div id="top_bar">Game Title</div>
+        <div id="game_container">Play game here
+            <div id="score_display">score</div>
+            <div id="click_btn" class="btn">Click</div>
+            <div id="dark_mode_btn" class="btn">Click</div>
 
-    <div id="main"> <!-- Main body for game play -->
-        <div id="random">TEST RANDOM TEST</div> <!-- just random for fun -->
 
-        <div id="topBar"> <!-- For top menu bar?-->
-            blah
-        </div>
-
-        <div id="game_window">sdf <!-- Main Game window (should this be subdivided?)-->
-            <!-- Right now the main buttons and play features-->    
+            <!-- <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa pariatur vitae voluptate mollitia quasi, laboriosam dolore nam illum ut quia vero sunt, labore quisquam maiores corporis! Nisi, impedit sequi!</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptate est quia deserunt maiores laborum, architecto earum reiciendis ex, nisi eveniet! Id delectus vel vitae voluptates, officiis quos! Quibusdam, repellat!
+            <p1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, asperiores quaerat eligendi, ipsa omnis laboriosam natus, quia temporibus architecto soluta excepturi enim numquam debitis suscipit atque ducimus minima aliquid esse.</p1>
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa pariatur vitae voluptate mollitia quasi, laboriosam dolore nam illum ut quia vero sunt, labore quisquam maiores corporis! Nisi, impedit sequi!</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptate est quia deserunt maiores laborum, architecto earum reiciendis ex, nisi eveniet! Id delectus vel vitae voluptates, officiis quos! Quibusdam, repellat!
+            <p1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, asperiores quaerat eligendi, ipsa omnis laboriosam natus, quia temporibus architecto soluta excepturi enim numquam debitis suscipit atque ducimus minima aliquid esse.</p1>
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa pariatur vitae voluptate mollitia quasi, laboriosam dolore nam illum ut quia vero sunt, labore quisquam maiores corporis! Nisi, impedit sequi!</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptate est quia deserunt maiores laborum, architecto earum reiciendis ex, nisi eveniet! Id delectus vel vitae voluptates, officiis quos! Quibusdam, repellat!
+            <p1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, asperiores quaerat eligendi, ipsa omnis laboriosam natus, quia temporibus architecto soluta excepturi enim numquam debitis suscipit atque ducimus minima aliquid esse.</p1>
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa pariatur vitae voluptate mollitia quasi, laboriosam dolore nam illum ut quia vero sunt, labore quisquam maiores corporis! Nisi, impedit sequi!</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptate est quia deserunt maiores laborum, architecto earum reiciendis ex, nisi eveniet! Id delectus vel vitae voluptates, officiis quos! Quibusdam, repellat!
+            <p1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, asperiores quaerat eligendi, ipsa omnis laboriosam natus, quia temporibus architecto soluta excepturi enim numquam debitis suscipit atque ducimus minima aliquid esse.</p1>
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa pariatur vitae voluptate mollitia quasi, laboriosam dolore nam illum ut quia vero sunt, labore quisquam maiores corporis! Nisi, impedit sequi!</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptate est quia deserunt maiores laborum, architecto earum reiciendis ex, nisi eveniet! Id delectus vel vitae voluptates, officiis quos! Quibusdam, repellat!
+            <p1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, asperiores quaerat eligendi, ipsa omnis laboriosam natus, quia temporibus architecto soluta excepturi enim numquam debitis suscipit atque ducimus minima aliquid esse.</p1>
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa pariatur vitae voluptate mollitia quasi, laboriosam dolore nam illum ut quia vero sunt, labore quisquam maiores corporis! Nisi, impedit sequi!</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptate est quia deserunt maiores laborum, architecto earum reiciendis ex, nisi eveniet! Id delectus vel vitae voluptates, officiis quos! Quibusdam, repellat!
+             -->
             
-            <div id="score_display">Score: 0</div>
-            <button class="dbutton" id="goUpBtn">Click Me!</button>
 
-            <div id="increase_display">Score Per Click: 1asdf</div>
-
-            <button id="upgradeBtn">Upgrade!</button>
-
-            <div id="upgrade_cost_display">Upgrade Cost: 10</div>
-
-            <button id="cheat_btn">Cheat!</button>
-<div aria-description="Gather some catnip in the forest" 
-        tabindex="0" 
-        style="position: relative; display: block; margin-left: auto; margin-right: auto;"  
-        class="btn nosel modern">
-    <div class="btnContent" title="">
-        <span class="btnTitle">Gather catnip</span>
+        </div>
+        <div id="bottom_menu">Loading...</div>
     </div>
-</div>          </div>
-
-
-        <div id="sub_menu">
-            <!-- Menu at bottom of screen -->
-            <!-- may want to move to a different location-->
-            <!-- In a dark room this doesn't seem to be part of the base index.html -->
-      </div>
-
-    </div>
-
-
-
-
-
-
-
-
-    <script type="text/javascript" src="main.js">  </script>
 
 </body>
