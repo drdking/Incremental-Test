@@ -3,6 +3,7 @@ let score = 0;
 const scoreDisplay = document.getElementById("score");
 const clickBtn = document.getElementById("clickBtn");
 const autoClickersDiv = document.getElementById("autoClickers");
+const autoAmount = document.getElementById("idle_amount");
 
 // Manual click
 clickBtn.onclick = () => {
@@ -53,13 +54,21 @@ function buyClicker(clicker, button) {
     clicker.owned++;
     clicker.cost = Math.floor(clicker.cost * 1.5);
 
+
+    let totalCPS = 0;
+
+  autoClickers.forEach(clicker => {
+    totalCPS += clicker.cps * clicker.owned;
+  });
+    autoAmount.textContent = "Auto Increase:" + totalCPS;
+    console.log(totalCPS);
     button.textContent =
       `${clicker.name} (Owned: ${clicker.owned}, Cost: ${clicker.cost})`;
 
     updateUI();
   }
 }
-
+// _
 // Game loop (runs 10 times per second)
 setInterval(() => {
   let totalCPS = 0;
