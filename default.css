@@ -55,12 +55,16 @@ look up later
     display: block;
 
 }
+#score_window {
+    position:fixed;
+    right: 0;
+    top: 25%;
+    padding: 1rem;
 
+}
 
-
-/* Stuff below here is from old files */
-/*Test formatting for buttons */
 .btn {
+    position:relative;
     border: 1px solid rgb(255, 255, 255);
     padding: 5px;
     cursor: default;
@@ -74,6 +78,43 @@ look up later
 .btn:active {
     color: #FFF;
 }
+
+.running {
+    color: #d82323;
+}
+
+.btn::after{
+          content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 20%;
+      width: 100%;
+      background: #4Af62699;
+      transform: scaleX(0);
+      transform-origin: left;
+      color: 
+}
+    .btn.running::after {
+ /*      animation: cooldown 1s linear infinite; attempt 3????
+     animation-name: cooldown;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite; */
+
+      animation: cooldown 1s linear infinite;
+    }
+
+    @keyframes cooldown {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+
+
+
+
+
+/* OLD STUFF */
 
 button {
     border: 10px solid red;
