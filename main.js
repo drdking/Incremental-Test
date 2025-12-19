@@ -7,3 +7,5 @@ dark_mode.addEventListener("click", () => {
 });
 
 set_up_bottom_menu();
+
+
