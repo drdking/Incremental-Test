@@ -4,7 +4,10 @@ bottom_menu_buttons = [
     {
         id: "hello",
         name: "Hello",
-        click: () => console.log("click")
+        click: () => {
+            console.log("click");
+            create_button("game_container");
+        }
     },{
         id: "dark_mode",
         name: "Dark Mode",

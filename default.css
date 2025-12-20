@@ -8,6 +8,7 @@ body {
     background-color: #000;
     color: #4Af626;
     overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 #page_container{
@@ -21,15 +22,17 @@ body {
     position:fixed;
     top: 0px;
     left: 0px;
-    height: 20px;
+    box-sizing: border-box;
+    padding: 0.25rem;
+    height: 1.5rem;
     width: 100%;
     border-bottom: 1px solid gray;
     box-shadow: 1px 0px 2px #888;
     min-width: 2rem;
 
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
 
-    z-index: 1;
+    /* z-index: 1; */
 
     background-color: #000; 
 
@@ -43,8 +46,17 @@ look up later
 
 #game_container {
     position:absolute;
-    top: 30px;
-    padding: 0.5rem;
+
+    top: 1.8rem;
+    bottom: 1rem;
+       
+    padding: 0.5rem; 
+    box-sizing: border-box;
+    overflow:auto;
+    /* border: 1px solid #999; */
+
+    /* border: 1px solid #ccc; */
+
 }
 
 #bottom_menu {
@@ -93,15 +105,15 @@ look up later
       background: #4Af62699;
       transform: scaleX(0);
       transform-origin: left;
-      color: 
 }
+
     .btn.running::after {
  /*      animation: cooldown 1s linear infinite; attempt 3????
      animation-name: cooldown;
       animation-timing-function: linear;
       animation-iteration-count: infinite; */
 
-      animation: cooldown 1s linear infinite;
+      animation: cooldown var(--cooldown) linear infinite;
     }
 
     @keyframes cooldown {

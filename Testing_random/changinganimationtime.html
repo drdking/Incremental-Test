@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adjustable Cooldown Counter</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 6px;
+      font-size: 14px;
+      width: 80px;
+    }
+
+    #toggleBtn {
+      position: relative;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      overflow: show;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    /* Cooldown progress bar */
+    #toggleBtn::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 50%;
+      width: 100%;
+      background: rgba(255, 0, 0, 0.8);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    #toggleBtn.running::after {
+ /*      animation: cooldown 1s linear infinite; attempt 3????
+     animation-name: cooldown;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite; */
+
+      animation: cooldown var(--cooldown) linear infinite;
+    }
+
+    @keyframes cooldown {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(2); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Counter: <span id="counter">0</span></h2>
+
+  <label>
+    Cooldown (seconds):
+    <input id="cooldownInput" type="number" min="1" value="5">
+  </label>
+
+  <button id="toggleBtn">Start</button>
+
+  <script>
+    let counter = 0;
+    let isRunning = false;
+    let intervalId = null;
+
+    const counterEl = document.getElementById("counter");
+    const toggleBtn = document.getElementById("toggleBtn");
+    const cooldownInput = document.getElementById("cooldownInput");
+
+    function startCounter() {
+      const seconds = Number(cooldownInput.value);
+
+      if (seconds <= 0 || isNaN(seconds)) {
+        alert("Please enter a valid cooldown time.");
+        return;
+      }
+
+      const durationMs = seconds * 1000;
+
+      // Set animation duration dynamically
+      //toggleBtn.style.animationDuration = `${seconds}s`;
+      toggleBtn.style.setProperty("--cooldown", `${seconds}s`);
+
+      toggleBtn.classList.add("running");
+      //toggleBtn.style["animation-duration"] = seconds +"s";
+
+      intervalId = setInterval(() => {
+        counter++;
+        counterEl.textContent = counter;
+
+        // Restart animation
+        toggleBtn.classList.remove("running");
+        void toggleBtn.offsetWidth; // force reflow
+        toggleBtn.classList.add("running");
+
+      }, durationMs);
+    }
+
+    function stopCounter() {
+      clearInterval(intervalId);
+      intervalId = null;
+      toggleBtn.classList.remove("running");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      if (!isRunning) {
+        isRunning = true;
+        toggleBtn.textContent = "Stop";
+        startCounter();
+      } else {
+        isRunning = false;
+        toggleBtn.textContent = "Start";
+        stopCounter();
+      }
+    });
+  </script>
+
+</body>
+</html>
