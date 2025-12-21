@@ -2,6 +2,8 @@ let isRunning = false; // will need to get moved somewhere
 let isRunning2 = false;
 let cd = null;
 let cd2 = null;
+let abcd = 0;
+let STOPLOOP = false;
 
 class Game {
     constructor(){
@@ -84,7 +86,45 @@ class Game {
 
         });
 
+        // Test timer for main game loop/refrehsing
+        let cdddd = setInterval(() => {
+            console.log("TICK")
+            // abcd ++;
+            // if(abcd>100){
+            //     clearInterval(cdddd);
+            //     cdddd=null;
+            //     console.log(abcd);
+            // }
+            this.UI.refresh_game_window();
+            if(STOPLOOP){
+                clearInterval(cdddd);
+                cdddd = null;
+                console.log("STOPPED LOOP");
+            }
+        }, 500 );
+
+
         console.log("ending main game constructor");
+    }
+
+    create_button(btn, targetID){
+        console.log("creating button inside $GM");
+        const target = document.getElementById(targetID);
+            let new_btn = new BTN(btn, targetID);
+
+
+
+        //default_btn.forEach(button => {
+          //  let new_btn = new BTN(button, targetID);
+        // const new_btn = document.createElement("div");
+        // new_btn.id = button.id;
+        // new_btn.textContent = button.name;
+        // new_btn.classList.add("btn");
+        // new_btn.addEventListener("click", () => button_on(new_btn));
+
+        // target.appendChild(new_btn);
+    //});
+
     }
 
     testing(){

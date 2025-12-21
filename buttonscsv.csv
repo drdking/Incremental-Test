@@ -1,0 +1,4 @@
+id,name,click
+hello,hello,"() => {             console.log(""click"");             create_button(""game_container"");         }"
+dark_mode,Dark Mode,"() => console.log(""dark_mode"") "
+light_mode,Light Mode,"() => console.log(""light_mode"") "

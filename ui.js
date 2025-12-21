@@ -23,6 +23,32 @@ class UI {
         
     }
 
+    refresh_game_window(){
+        //document.getElementById("game_container").innerHTML = "";
+
+        // Will Loop through each of the buttons, check if they exist and if 
+        // they're unlocked, 
+        // If unlocked and does not exist will create button
+        default_btn.forEach(button => {
+            console.log(`From inside UI.refresh_game_window: Creating button:${button.id}`)
+            //$GM.create_button(button,"game_container")
+            if(!button.exists && button.unlocked){
+                new BTN(button, "game_container");
+                button.exists = true;
+            }
+        });
+
+        // Temp function to check if unlocked
+        // This needs a new home
+
+        default_btn.forEach(button => {
+                    if($GM.test >= button.unlock_amt){
+            button.unlocked = true;
+        }
+        });
+
+    }
+
 }
 
 //UI = new UI();

@@ -6,18 +6,53 @@ bottom_menu_buttons = [
         name: "Hello",
         click: () => {
             console.log("click");
-            create_button("game_container");
+            document.getElementById("game_container").innerHTML = "";
+            default_btn.forEach(button => {
+                console.log(`From the bottom menu buttons list: Creating button:${button.id}`)
+                //$GM.create_button(button,"game_container")
+                new BTN(button, "game_container");
+        });
+            //$GM.create_button("game_container");
         }
     },{
         id: "dark_mode",
         name: "Dark Mode",
-        click: () => console.log("dark_mode")
+        click: () => {
+            console.log("dark_mode")
+            STOPLOOP = true;
+        }
     },{
         id: "light_mode",
         name: "Light Mode",
         click: () => console.log("light_mode")
     }
 ];
+
+/* Messing with transfering objects and classes.. not needed 
+console.log(bottom_menu_buttons);
+
+bottom_menu_buttons.forEach(btn => {
+    let blah = btn;
+    console.log(btn);
+    console.log(blah);
+    console.log(blah.id);
+    blah.id = "sorry";
+    console.log(blah.id);
+    console.log(btn.id);
+})
+
+function transferObject(source){
+    console.log("transferring....");
+}*/
+
+// class Test{
+//     constructor(source){
+// //         this = source;
+// //     }
+// // }
+
+// bottom_menu_buttons.forEach()
+
 
 // Add logic for changing CSS States eventualy..
 
@@ -77,3 +112,56 @@ class Set_Up{
 
 }
 
+// console.log("PLaying with xml");
+
+
+// let txtFile = new XMLHttpRequest();
+// txtFile.open("GET", "file://C:/gethub.com/buttonscsv.csv");
+// let alltext = txtFile.responseText;
+
+// console.log(alltext);
+
+// const deserializeRow = (row, delimiter = ',') => {
+//   const values = [];
+//   let index = 0, matchStart = 0, isInsideQuotations = false;
+//   while (true) {
+//     if (index === row.length) {
+//       values.push(row.slice(matchStart, index));
+//       break;
+//     }
+//     const char = row[index];
+//     if (char === delimiter && !isInsideQuotations) {
+//       values.push(
+//         row
+//           .slice(matchStart, index)
+//           .replace(/^"|"$/g, '')
+//           .replace(/""/g, '"')
+//           .replace(/\\n/g, '\n')
+//       );
+//       matchStart = index + 1;
+//     }
+//     if (char === '"')
+//       if (row[index + 1] === '"') index += 1;
+//       else isInsideQuotations = !isInsideQuotations;
+//     index += 1;
+//   }
+//   return values;
+// };
+
+// function CSVtoObject(source, delimiter = ','){
+//   const rows = source.split('\n');
+//   const headers = deserializeRow(rows.shift(), delimiter);
+//   return rows.map((row) => {
+//     const values = deserializeRow(row, delimiter);
+//     return headers.reduce((obj, key, index) => {
+//       obj[key] = values[index];
+//       return obj;
+//     }, {});
+//   });
+// };
+
+// let testtest = CSVtoObject(alltext,',')
+
+// console.log(testtest[0]);
+
+// //let newnewbuttons = New CSVtoObject (buttonscsv.csv)

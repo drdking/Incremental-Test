@@ -6,14 +6,30 @@ let default_btn = [
         on_text: "Resarching",
         value: 1,
         resource: "research",
-        time: 1
+        time: 1,
+        starting: true,
+        unlocked: true,
+        exists: false
     },{
         id: "slow_research",
         name: "Slow Research",
         on_text: "Researching",
         value: 3,
         resource: "research",
-        time: 3
+        time: 3,
+        unlocked: false,
+        exists: false,
+        unlock_amt: 10
+    },{
+        id: "super_research",
+        name: "Super Research",
+        on_text: "Researching",
+        value: 10,
+        resource: "research",
+        time: 5,
+        unlocked: false,
+        exists: false,
+        unlock_amt: 100
     }
 ];
 
@@ -24,33 +40,43 @@ class BTN {
         console.log("Starting Button Construrtor");
         console.log(targetID);
 
-        this.id = button.id;
-        this.name = button.name;
-        this.on_text = button.on_text;
-        this.value = button.value;
-        this.resource = button.resource;
-        this.time = button.time;
-        this.delay = 0;
+        Object.assign(this,button);
+ 
+        //this.delay = 0;
         this.IRun = false;
         this.cdd = null;
-
-        //this.addEventListener("click", () => button_on());
 
         this.create_new(targetID);
 
         console.log("Ending Button Constructor");
     }
 
+    // Slightly deprecitaed, moving some code to the UI refresh function
     create_new(targetID) {
         console.log(`Target: ${targetID}`);
-        let target = document.getElementById(targetID);
-        let new_btn = document.createElement("div");
-        new_btn.id = this.id;
-        new_btn.textContent = this.name;
-        new_btn.classList.add("btn");
-        new_btn.addEventListener("click", () => this.turn_on());
+        // if(!this.exists){ // See if already exists
+        //     this.check_unlocked();
+        //     if(!this.unlocked){
+        //         console.log(`${this.id} Not Unlocked`);
+        //         return;
+        //     }
+        //     console.log("Continuing...")
+            let target = document.getElementById(targetID);
+            let new_btn = document.createElement("div");
+            new_btn.id = this.id;
+            new_btn.textContent = this.name;
+            new_btn.classList.add("btn");
+            new_btn.addEventListener("click", () => this.turn_on());
 
-        target.appendChild(new_btn);
+            target.appendChild(new_btn);
+        
+    }
+
+    check_unlocked(){
+        if($GM.test >= this.unlock_amt){
+            this.unlocked = true;
+        }
+
     }
 
     turn_on() {
@@ -86,7 +112,7 @@ class BTN {
 
 // Creating Buttons
 // Need to move this into a class 
-
+/*
 function create_button(targetID){
     console.log("creating button");
     const target = document.getElementById(targetID);
@@ -101,6 +127,10 @@ function create_button(targetID){
         // target.appendChild(new_btn);
     });
 }
+*/
+
+/* Depreciated button on/off function, 
+has been moved into the button class
 
 function button_on(btn){
     console.log("button on");
@@ -138,4 +168,4 @@ function button_on(btn){
         clearInterval(delay);
         delay = null;
     }
-}
+} */
